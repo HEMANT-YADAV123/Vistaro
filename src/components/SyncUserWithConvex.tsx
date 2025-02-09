@@ -8,7 +8,7 @@ import { api } from "../../convex/_generated/api";
 
 function SyncUserWithConvex() {
     const { user } = useUser();
-    const updateUser = useMutation(api.users.updateUser)
+    const updateUser = useMutation(api.users.updateUser)//to connect with updateUser from convex users.ts
     //update user
     useEffect(()=>{
         

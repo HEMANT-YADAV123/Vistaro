@@ -4,7 +4,7 @@ import { mutation,query } from './_generated/server'
 export const getUserById = query({
     args:{userId: v.string()},
     handler: async (ctx, {userId}) => {
-        const user = await ctx.db
+        const user = await ctx.db //ctx: Context object provided by Convex, used for database interactions.
         .query("users")
         .withIndex("by_user_id", (q)=> q.eq("userId",userId))
         .first()
