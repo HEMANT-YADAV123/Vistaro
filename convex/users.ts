@@ -47,3 +47,36 @@ export const updateUser = mutation({
         return newUserId;
     },
 })
+
+export const getUserStripeConnectId = query({
+    args:{userId:v.string()},
+
+    handler: async (ctx,args) => {
+        const user = await ctx.db
+        .query("users")
+        .filter((q) => q.eq(q.field("userId"),args.userId))//filter where userId is equal to args.userId.
+        .filter((q) => q.neq(q.field("stripeConnectId"),undefined))//filter where stripeConnectId is not undefined.
+        .first()
+        return user?.stripeConnectId;
+    }
+})
+
+export const updateOrCreateUserStripeConnectId = mutation({
+    args: {userId: v.string(),stripeConnectId: v.string()},
+    handler: async (ctx,args) => {
+        const user = await ctx.db
+        .query("users")
+        .withIndex("by_user_id",(q) => q.eq("userId",args.userId))
+        .first();
+        
+        if(!user)
+        {
+            throw new Error("User not found");
+        }
+
+        await ctx.db.patch(user._id,{stripeConnectId: args.stripeConnectId});
+        // ctx.db.patch(user._id, {...}) → Updates an existing record in the database.
+        // Finds the user by user._id.
+        // Updates only the stripeConnectId field without affecting other user data.
+    } 
+})

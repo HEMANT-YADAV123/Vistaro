@@ -7,6 +7,7 @@ import { api } from "../../convex/_generated/api";
 import { useStorageUrl } from "@/lib/utils";
 import Image from "next/image";
 import { CalendarDays, Check, CircleArrowLeft, CircleArrowRight, LoaderCircle, LoaderCircleIcon, MapPin, PencilIcon, StarIcon, Ticket, XCircle } from "lucide-react";
+import PurchaseTicket from "./PurchaseTicket";
 
 
 const EventCard = ({eventId} : {eventId: Id<"events">}) => { //{eventId: Id<"events"> -> exact type of event Id from event id table
@@ -179,7 +180,7 @@ const EventCard = ({eventId} : {eventId: Id<"events">}) => { //{eventId: Id<"eve
                 </span>
               )}
             </div>
-          </div>
+          
           {/* Price tag */}
           <div className="flex flex-col items-end gap-2 ml-4">
             <span className={`px-4 py-1.5 font-semibold rounded-full ${
@@ -195,6 +196,7 @@ const EventCard = ({eventId} : {eventId: Id<"events">}) => { //{eventId: Id<"eve
                 Sold Out
               </span>
             )}
+          </div>
           </div>
           {/* Event Details */}
           <div className="mt-4 space-y-3">

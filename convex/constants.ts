@@ -1,7 +1,7 @@
 import { Doc } from "./_generated/dataModel";
 
 //Time constants in millisec
-export const Duration = {
+export const DURATIONS = {
     TICKET_OFFER: 30 * 60 * 1000, //30 MIN (Minimum stripe allows for checkout expiry)
 } as const;
 
