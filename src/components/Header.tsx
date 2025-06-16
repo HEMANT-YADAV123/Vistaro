@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import logo from '../../images/logo (2).png'
+import logo from '../../images/Vistaro-removebg-preview (1).png'
 import { SignedIn, UserButton, SignedOut, SignInButton } from "@clerk/nextjs"
 import SearchBar from "./SearchBar"
 
@@ -16,7 +16,7 @@ function Header() {
                     alt="logo"
                     width={100}
                     height={100}
-                    className="w-24 lg:w-28"/>
+                    className="w-24 lg:w-32"/>
                 </Link>
                 <div className="lg:hidden">
                     <SignedIn>
