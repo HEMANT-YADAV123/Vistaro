@@ -4,7 +4,7 @@ A modern, real-time event ticketing platform built with Next.js, Convex, Clerk, 
 
 ## Features
 
-### For Event Attendees
+## For Event Attendees
 
 - 🎫 Real-time ticket availability tracking
 - ⚡ Smart queuing system with position updates
